@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson_05</title>
+</head>
+<body>
+<script>
+    // --- ПОДЛГОТОВКА ДАННЫХ ---
+    const word_0_eng = 'Wassap';
+    const word_0_rus = 'Здарова';
+
+    const word_1_eng = 'Bye';
+    const word_1_rus = 'Покеда';
+
+    const word_2_eng = 'Programmer';
+    const word_2_rus = 'Программист';
+
+    const words = 3;
+
+    const finishWord = 'Молодец! Good result!';
+    const finishNoWord = 'Молодец! Но постарайся лучше';
+
+    const minCoorect = 50;
+
+    let correctCount = 0;
+
+
+    // --- ПРОГРАММА ---
+    const userAnswer_0 = prompt(word_0_eng); // 0
+    alert(userAnswer_0 === word_0_rus);
+    if (userAnswer_0 === word_0_rus){
+        correctCount = correctCount + 1;
+    }
+
+    const userAnswer_1 = prompt(word_1_eng); // 1
+    alert(userAnswer_1 === word_1_rus);
+    if (userAnswer_1 === word_1_rus){
+        correctCount = correctCount + 1;
+    }
+
+    const userAnswer_2 = prompt(word_2_eng); // 2
+    alert(userAnswer_2 === word_2_rus);
+    if (userAnswer_2 === word_2_rus){
+        correctCount = correctCount + 1;
+    }
+
+    const correctUser = correctCount / words * 100;
+
+    if(correctUser > minCoorect) {
+        alert(finishWord);
+    } else {
+        alert(finishNoWord);
+    }
+
+</script>
+</body>
+</html>
