@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<script>
+    let balance = 200;
+
+    // -----------------------------
+
+    document.write('START', '<br>');
+
+    let productPriceString = window.prompt('How much does product #1 costs?');
+    let productPrice = window.Number(productPriceString);
+
+    if (window.isNaN(productPrice)) {
+        document.write('invalid number <br>');
+    } else {
+        if (balance >= productPrice) {
+            document.write('product #1 purchased <br>');  // продукт приобретен
+            balance = balance - productPrice;
+        } else {
+            document.write('product #1 not enough money <br>');      // не хватает денег
+        }
+    }
+
+    productPriceString = window.prompt('How much does product #2 costs?');
+    productPrice = window.Number(productPriceString);
+
+    if (window.isNaN(productPrice)) {
+        document.write('invalid number <br>');
+    } else {
+        if (balance >= productPrice) {
+            document.write('product #2 purchased <br>');  // продукт приобретен
+            balance = balance - productPrice;
+        } else {
+            document.write('product #2 not enough money <br>');      // не хватает денег
+        }
+    }
+
+    productPriceString = window.prompt('How much does product #3 costs?');
+    productPrice = window.Number(productPriceString);
+
+    if (window.isNaN(productPrice)) {
+        document.write('invalid number <br>');
+    } else {
+        if (balance >= productPrice) {
+            document.write('product #3 purchased <br>');  // продукт приобретен
+            balance = balance - productPrice;
+        } else {
+            document.write('product #3 not enough money <br>');      // не хватает денег
+        }
+    }
+
+    document.write('remains on balance: ' + balance);
+    document.write('<br>', 'END');
+</script>
+</body>
+
+</html>
