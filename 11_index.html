@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<script>
+    // const laptop_1 = {
+    //     name: 'zenbook',
+    //     manufacturer: 'ASUS',
+    //     price: 1000
+    // }
+	 //
+    // const laptop_2 = {
+    //     name: 'macbook',
+    //     manufacturer: {
+    //         title: 'APPLE',
+    //         count: 10,
+    //         adress: 'China'
+    //     },
+    //     price: 3000
+    // }
+	 //
+    // console.log(laptop_2.manufacturer.adress)
+
+
+    // --- ПОДЛГОТОВКА ДАННЫХ ---
+    const word_0 = {
+        orirginal: 'Wassap',
+	     translate: 'Здарова'
+    }
+    const word_1 = {
+        orirginal: 'Bye',
+        translate: 'Покеда'
+    }
+    const word_2 = {
+        orirginal: 'Programmer',
+        translate: 'Программист'
+    }
+    const words = 3;
+    const resultMessages = {
+        finishWord: 'Молодец! Good result!',
+        finishNoWord: 'Молодец! Но постарайся лучше'
+    }
+    const settings = {
+        minCorrect: 50
+    }
+    const result = {
+        correctCount: 0
+    }
+    // --- ПРОГРАММА ---
+    const userAnswer_0 = prompt(word_0.orirginal); // 0
+    alert(userAnswer_0 === word_0.translate);
+    if (userAnswer_0 === word_0.translate) {
+        result.correctCount = result.correctCount + 1;
+    }
+
+    const userAnswer_1 = prompt(word_1.orirginal); // 1
+    alert(userAnswer_1 === word_1.translate);
+    if (userAnswer_1 === word_1.translate) {
+        result.correctCount = result.correctCount + 1;
+    }
+
+    const userAnswer_2 = prompt(word_2.orirginal); // 2
+    alert(userAnswer_2 === word_2.translate);
+    if (userAnswer_2 === word_2.translate) {
+        result.correctCount = result.correctCount + 1;
+    }
+
+    const correctUser = result.correctCount / words * 100;
+
+    if (correctUser > settings.minCorrect) {
+        alert(resultMessages.finishWord);
+    } else {
+        alert(resultMessages.finishNoWord);
+    }
+</script>
+</body>
+
+</html>
