@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<script>
+    // --- ПОДЛГОТОВКА ДАННЫХ ---
+    const words = [
+        {orirginal: 'Wassap', translate: 'Здарова'},
+        {orirginal: 'Bye', translate: 'Покеда'},
+        {orirginal: 'Programmer', translate: 'Программист'},
+        {wordsCount: 3}
+    ];
+
+    const resultMessages = {
+        finishWord: 'Молодец! Good result!',
+        finishNoWord: 'Молодец! Но постарайся лучше'
+    }
+    const settings = {
+        minCorrect: 50
+    }
+    const result = {
+        correctCount: 0
+    }
+    // --- ПРОГРАММА ---
+    const userAnswer_0 = prompt(words[0].orirginal); // 0
+    alert(userAnswer_0 === words[0].translate);
+    if (userAnswer_0 === words[0].translate) {
+        result.correctCount = result.correctCount + 1;
+    }
+
+    const userAnswer_1 = prompt(words[1].orirginal); // 1
+    alert(userAnswer_1 === words[1].translate);
+    if (userAnswer_1 === words[1].translate) {
+        result.correctCount = result.correctCount + 1;
+    }
+
+    const userAnswer_2 = prompt(words[2].orirginal); // 2
+    alert(userAnswer_2 === words[2].translate);
+    if (userAnswer_2 === words[2].translate) {
+        result.correctCount = result.correctCount + 1;
+    }
+
+    const correctUser = result.correctCount / words[3].wordsCount * 100;
+
+    if (correctUser > settings.minCorrect) {
+        alert(resultMessages.finishWord);
+    } else {
+        alert(resultMessages.finishNoWord);
+    }
+</script>
+</body>
+
+</html>
