@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<script>
+    // --- ПОДЛГОТОВКА ДАННЫХ ---
+    const words = [
+        {orirginal: 'Wassap', translate: 'Здарова'},
+        {orirginal: 'Bye', translate: 'Покеда'},
+        {orirginal: 'Programmer', translate: 'Программист'},
+        {orirginal: 'Sun', translate: 'Солнце'},
+        {orirginal: 'Moon', translate: 'Луна'}
+    ];
+    const wordsCount = words.length;
+    const resultMessages = {
+        finishWord: 'Молодец! Good result!',
+        finishNoWord: 'Молодец! Но постарайся лучше'
+    };
+    const settings = {
+        minCorrect: 50
+    };
+    const result = {
+        correctCount: 0
+    };
+    const rightAnswer = [];
+    const wrongAnswer = [];
+
+    // --- ПРОГРАММА ---
+    for (i = 0; i < words.length; i++) {
+        const userAnswer = prompt(words[i].orirginal); // 0
+        document.write(i + 1, ' - ', userAnswer, '<br>');
+        if (userAnswer === words[i].translate) {
+            result.correctCount = result.correctCount + 1;
+            document.write('Молодец, ответ верный!', '<br>');
+            rightAnswer.push(i);
+        } else {
+            document.write('Неудача, правильный ответ - ', ' « ', words[i].translate, ' » ', '<br>');
+            wrongAnswer.push(i);
+        }
+        document.write('- - - - - - - - - - - - - - - - - - - - - - -', '<br>');
+    }
+    const correctUser = result.correctCount / wordsCount * 100;
+    document.write('Итого правильных ответов: ', rightAnswer.length, '<br>');
+    document.write('Итого неправильных ответов: ', wrongAnswer.length, '<br>');
+    document.write('- - - - - - - - - - - - - - - - - - - - - - -', '<br>');
+    document.write('Твой успех состовляет: ', Math.round(correctUser), ' %', '<br>');
+    if (correctUser > settings.minCorrect) {
+        document.write(resultMessages.finishWord);
+    } else {
+        document.write(resultMessages.finishNoWord);
+    }
+</script>
+</body>
+</html>
