@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<script> // src="_test.js"
+// --- ФУНКЦИИ ---
+function startTraining(_words, _result) {
+    for (i = 0; i < _words.length; i++) {
+        const userAnswer = prompt(_words[i].orirginal); // 0
+        document.write(i + 1, ' - ', userAnswer, '<br>');
+        if (userAnswer === _words[i].translate) {
+            _result.correctCount = _result.correctCount + 1;
+            document.write('Молодец, ответ верный!', '<br>');
+            rightAnswer.push(i);
+        } else {
+            document.write('Неудача, правильный ответ - ', ' « ', _words[i].translate, ' » ', '<br>');
+            wrongAnswer.push(i);
+        }
+        document.write('- - - - - - - - - - - - - - - - - - - - - - -', '<br>');
+    }
+}
+function getProcentage(_result, _words) {
+    return _result.correctCount / _words.length * 100;
+}
+
+// --- ПОДЛГОТОВКА ДАННЫХ ---
+const words = [
+    {orirginal: 'Wassap', translate: 'Здарова'},
+    {orirginal: 'Bye', translate: 'Покеда'},
+    {orirginal: 'Programmer', translate: 'Программист'},
+    {orirginal: 'Sun', translate: 'Солнце'},
+    {orirginal: 'Moon', translate: 'Луна'}
+];
+const resultMessages = {
+    finishWord: 'Молодец! Good result!',
+    finishNoWord: 'Молодец! Но постарайся лучше'
+};
+const settings = {
+    minCorrect: 50
+};
+const result = {
+    correctCount: 0
+};
+const rightAnswer = [];
+const wrongAnswer = [];
+
+// --- ПРОГРАММА ---
+startTraining(words, result);
+const correctUser = getProcentage(result, words);
+document.write('Итого правильных ответов: ', rightAnswer.length, '<br>');
+document.write('Итого неправильных ответов: ', wrongAnswer.length, '<br>');
+document.write('- - - - - - - - - - - - - - - - - - - - - - -', '<br>');
+document.write('Твой успех состовляет: ', Math.round(correctUser), ' %', '<br>');
+if (correctUser > settings.minCorrect) {
+    document.write(resultMessages.finishWord);
+} else {
+    document.write(resultMessages.finishNoWord);
+}
+</script>
+</body>
+</html>
